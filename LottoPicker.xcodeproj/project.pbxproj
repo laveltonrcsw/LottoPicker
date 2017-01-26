@@ -25,6 +25,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2052CB8D1C43FD55003D6258 /* l6.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = l6.htm; path = OtherData/l6.htm; sourceTree = "<group>"; };
+		2052CB8E1C43FD55003D6258 /* winnums-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "winnums-text.txt"; path = "OtherData/winnums-text.txt"; sourceTree = "<group>"; };
+		205EB9851CF7E55B00D8CF24 /* LottoPicker.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LottoPicker.txt; sourceTree = "<group>"; };
 		208937951974DEBD00EF6E87 /* Other Information.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Other Information.txt"; sourceTree = "<group>"; };
 		20B48969197460C300E2FBA5 /* LottoPicker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LottoPicker; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B4896C197460C300E2FBA5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
@@ -42,10 +45,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2052CB8C1C43FD41003D6258 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				205EB9851CF7E55B00D8CF24 /* LottoPicker.txt */,
+				2052CB8D1C43FD55003D6258 /* l6.htm */,
+				2052CB8E1C43FD55003D6258 /* winnums-text.txt */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		20B48960197460C300E2FBA5 = {
 			isa = PBXGroup;
 			children = (
 				20B4896B197460C300E2FBA5 /* LottoPicker */,
+				2052CB8C1C43FD41003D6258 /* Others */,
 				20B4896A197460C300E2FBA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,7 +108,7 @@
 		20B48961197460C300E2FBA5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Rochee Software, LLC.";
 			};
 			buildConfigurationList = 20B48964197460C300E2FBA5 /* Build configuration list for PBXProject "LottoPicker" */;
@@ -143,6 +157,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;

@@ -1,6 +1,7 @@
 //
 //  main.c
-//  LottoPicker
+//  LottoPicker - Powerball
+//  URL: http://www.powerball.com
 //
 //  Created by LaVelton R. Carroway on 06/16/2014.
 //  Copyright (c) 2014 Rochee Software, LLC. All rights reserved.
@@ -17,21 +18,34 @@ const char * LottoQuickPick();
 
 int main(int argc, const char * argv[])
 {
+//    const char *szProjectPath = "/Volumes/WDPP2TB/Development/Xcode/PRG/LottoPicker/OtherData";
+//    chdir(szProjectPath);
+//    system("curl -sS -O http://www.powerball.com/powerball/winnums-text.txt");
+
+    FILE *fp;
+    chdir("/Volumes/WDPP2TB/Development/Xcode/PRG/LottoPicker");
+    if ((fp = fopen("LottoPicker.txt", "a+")) == NULL ) fprintf(stderr, "File Access Denied\n");
+
+
     // Display The Lotto Picks
-    fprintf(stdout,"Florida Lottery - Powerball Lottery Picker\n");
-    fprintf(stdout,"The Florida Lottery offers fun and excitement for all who play, with new games, bigger prizes, and more winners.\n\n");
+    fprintf(fp,"FLORIDA LOTTERY - POWERBALL LOTTERY PICKER\n");
+    fprintf(fp,"The Florida Lottery offers fun and excitement for all who play, with new games, bigger prizes, and more winners.\n");
+    fprintf(fp,"Printed: %s Time: %s\n\n", __DATE__, __TIME__);
 
     for (int TicketCount = 1; TicketCount < 4; TicketCount++)
     {
-        fprintf(stdout, "Ticket: %d\n", TicketCount);
-        fprintf(stdout,"Quick Pick Panel A: %s\n", LottoQuickPick());
-        fprintf(stdout,"Quick Pick Panel B: %s\n", LottoQuickPick());
-        fprintf(stdout,"Quick Pick Panel C: %s\n", LottoQuickPick());
-        fprintf(stdout,"Quick Pick Panel D: %s\n", LottoQuickPick());
-        fprintf(stdout,"Quick Pick Panel E: %s\n\n", LottoQuickPick());
+        fprintf(fp, "TICKET: %d\n", TicketCount);
+        fprintf(fp,"Quick Pick Panel A: %s\n", LottoQuickPick());
+        fprintf(fp,"Quick Pick Panel B: %s\n", LottoQuickPick());
+        fprintf(fp,"Quick Pick Panel C: %s\n", LottoQuickPick());
+        fprintf(fp,"Quick Pick Panel D: %s\n", LottoQuickPick());
+        fprintf(fp,"Quick Pick Panel E: %s\n\n", LottoQuickPick());
     }
 
-    fprintf(stdout, "Have A Good Day.\n\n");
+    fprintf(fp, "Have A Good Day.\n\n");
+    fclose(fp);
+
+    // system("open /Applications/textedit.app LottoPicker.txt");
 
     return 0;
 }
@@ -46,16 +60,22 @@ const char * LottoQuickPick()
     int lottoPickPB = 0;
 
     /*
-     * Select five numbers from 1 through 59 in the upper play area, or mark the QP (Quick Pick) box and let the
-     * terminal randomly pick some or all of your numbers.
+     * POWERBALL 7.0 BEGINS OCTOBER 7, 2015
+     * HIGHER JACKPOTS; MORE OVERALL WINNERS
+     * The number of white balls rises to 69, while the number of red balls drops to 26. This change means higher average jackpot won and more overall winners.
      */
-    int lottoPickMax = 60;
 
     /*
-     * Select your Powerball number from 1 through 35 in the lower play area, or mark the QP (Quick Pick) box for
+     * Select five numbers from 1 through 69 in the upper play area, or mark the QP (Quick Pick) box and let the
+     * terminal randomly pick some or all of your numbers.
+     */
+    int lottoPickMax = 69;
+
+    /*
+     * Select your Powerball number from 1 through 26 in the lower play area, or mark the QP (Quick Pick) box for
      * the terminal to randomly select your Powerball number.
      */
-    int lottoPickPBMax = 36;
+    int lottoPickPBMax = 26;
 
     int sortedLottoPick[6], sortedCounter01, sortedCounter02, NumberOfPicks, tempLottoPickArrayLocation;
     static char fullLottoPicks[30];
